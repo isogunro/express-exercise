@@ -25,6 +25,7 @@ app.engine('handlebars', exphbs({
 
 app.set('view engine', 'handlebars');
 
+
 //Body parser middleware - allows us to access whatever is submitted from the form of the request object
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -40,12 +41,13 @@ app.use(session({cookie: { maxAge: 60000 }}));
 app.use(flash());
 
 //Global variables
-/*app.use(function(req, res, next){
+app.use(function(req, res, next){
     res.local.success_msg = req.flash('success_msg');
     res.local.error_msg = req.flash('error_msg');
     res.locals.error = req.flash('error');
     next();
-})*/
+})
+
 //Index Route
 app.get('/', (req, res)=>{
     const myTitle="Welcome Isaac S.";

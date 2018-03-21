@@ -29,7 +29,8 @@ router.get('/edit/:id', (req, res)=>{
 })
 .then(idea => { //<== returns single data queried for with above :id
     res.render('ideas/edit', {
-        idea:idea
+        idea:idea,
+        _msg: req.flash('success_msg')
     });
   });
 });
